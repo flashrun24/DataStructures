@@ -1,13 +1,15 @@
 cmake_minimum_required(VERSION 3.29)
-project(CPP_Template VERSION 0.1 DESCRIPTION "temp" HOMEPAGE_URL "https://github.com/flashrun24/" LANGUAGES CXX)
+project(DataStructures VERSION 0.1 DESCRIPTION "Datastructures that I have coded for practice" HOMEPAGE_URL "https://github.com/flashrun24/" LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_FLAGS "-O3")
 
 
 configure_file(include/Config.h include/Config.h)
 file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME})
+target_sources(${PROJECT_NAME} PRIVATE ${SOURCES})
 target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/include/)
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)

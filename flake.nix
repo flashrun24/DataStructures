@@ -1,8 +1,8 @@
 {
-  description = "C++ Template flake";
+  description = "C++ DataStructures";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
   outputs = { self, nixpkgs }:
@@ -12,7 +12,7 @@
     in
     {
       packages.${system}.default = pkgs.stdenv.mkDerivation rec {
-        name = "CPP_Template";
+        name = "DataStructures";
 	version = "0.1";
 	nativeBuildInputs = [ pkgs.cmake ];
 	src = ./.;
